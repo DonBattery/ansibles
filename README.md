@@ -8,7 +8,8 @@ I have created 2 Docker containers
 - my-ansible
 - my-node
 
-Both from Ubuntu image. I have installed **python** and **ansible** on my-ansible, **python** and **openssh** on my-node. Also I have created an user named ansible on my-node with sudo rights.
+Both from Ubuntu image. I have installed **python** and **ansible** on my-ansible, **python** and **openssh** on my-node. Also I have created an user named ansible on my-node with sudo rights.\
+For this example to work properly insert "end of bashrc" et the end of /home/ansible/.bashrc on my-node.
 
 ## Usage
 
