@@ -1,0 +1,15 @@
+- name: a play that runs entirely on the ansible host
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+
+  - name: Get ENV
+    shell: env
+    register: result
+
+  - debug:
+      msg: "{{ result.stdout }}"
+
+  - debug:
+      msg: "{{ result.stderr }}"

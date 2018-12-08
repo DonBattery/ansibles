@@ -1,0 +1,18 @@
+---
+
+# This is a comment
+
+- name: A play that runs on remote hosts
+  hosts: all
+  remote_user: ansible
+  vars:
+    - ansible_sudo_pass: pass123
+    - param_user: ansible
+    - android_home: /opt/android-sdk
+    - android_ndk_home: /opt/android-ndk
+    - path_marker: "PATH Additions"
+    - export_marker: "Export Additions"
+  roles:
+    - patch_bashrc
+
+...

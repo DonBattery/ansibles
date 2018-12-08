@@ -1,0 +1,26 @@
+---
+
+# Patch .bashrc
+- name: Extend PATH with JAVA_HOME ANDROID_HOME ANDROID_NDK_HOME
+  become: yes
+  blockinfile:
+    insertbefore: "end of bashrc"
+    path: /home/ansible/.bashrc
+    block: "{{ lookup('template', 'path.j2') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - {{ path_marker }}"
+
+- name: Export JAVA_HOME ANDROID_HOME ANDROID_NDK_HOME
+  become: yes
+  blockinfile:
+    insertbefore: "end of bashrc"
+    path: /home/ansible/.bashrc
+    block: "{{ lookup('template', 'export.j2') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - {{ export_marker }}"
+
+- name: Final newline
+  become: yes
+  lineinfile:
+    insertbefore: "end of bashrc"
+    path: /home/ansible/.bashrc
+    line: ""
+...
