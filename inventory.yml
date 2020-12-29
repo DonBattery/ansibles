@@ -2,8 +2,8 @@
 
 all:
   hosts:
-    ansible-node1:
-    ansible-node2:
+    ansible-node-1:
+    ansible-node-2:
   vars:
     ansible_user: ansible
     ansible_password: pass123
