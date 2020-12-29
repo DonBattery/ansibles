@@ -6,6 +6,6 @@
 
   tasks:
 
-    - name: Print hostname
+    - name: Print the inventory hostname of the node
       debug:
         var: inventory_hostname

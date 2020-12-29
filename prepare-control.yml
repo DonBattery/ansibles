@@ -1,7 +1,8 @@
-- name: This playbook prepares the Ansible control node
+---
+
+- name: This playbook prepares the Ansible control container
   hosts: 127.0.0.1
   connection: local
-
 
   tasks:
   - name: Create /root/.ssh folder
@@ -9,9 +10,9 @@
       path: /root/.ssh
       state: directory
 
-  - name: Add nodes to /root/.ssh/known_hosts file
+  - name: Add the Ansible nodes to /root/.ssh/known_hosts file
     copy:
       dest: /root/.ssh/known_hosts
       content: |
-        ansible-node1
-        anisble-node2
+        ansible-node-1
+        ansible-node-2

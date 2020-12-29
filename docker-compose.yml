@@ -1,7 +1,9 @@
 version: '3'
+
 services:
+
   ansible-control:
-    container_name: anisble-control
+    container_name: ansible-control
     environment:
       - ANSIBLE_HOST_KEY_CHECKING=False
     build:
@@ -13,8 +15,8 @@ services:
       - ansible_net
     tty: true
 
-  ansible-node1:
-    container_name: anisble-node1
+  ansible-node-1:
+    container_name: ansible-node-1
     build:
       context: .
       dockerfile: node.Dockerfile
@@ -24,8 +26,8 @@ services:
       - 9090:8080
     tty: true
 
-  ansible-node2:
-    container_name: anisble-node2
+  ansible-node-2:
+    container_name: ansible-node-2
     build:
       context: .
       dockerfile: node.Dockerfile
