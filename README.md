@@ -4,23 +4,20 @@ Ansible boilerplate and tricks
 
 ## Setup
 
-I have created 2 Docker containers
-- my-ansible
-- my-node
+Build and run the ansible-control and the two ansible-node containers  
+`docker-compose up`
 
-Both from Ubuntu image. I have installed **python** and **ansible** on my-ansible, **python** and **openssh** on my-node. Also I have created an user named ansible on my-node with sudo rights.\
-For this example to work properly insert "end of bashrc" et the end of /home/ansible/.bashrc on my-node.
+Exec into the ansible-control container  
+`docker exec -it <container_id> bash`
 
-## Usage
+Change the directory to /app  
+`cd /app`
 
-In the my-ansible container
+Prepare the ansible-control container with  
+`ansible-playbook prepare-control.yml`
 
-Run playbook locally
-```BASH
-ansible-playbook local-playbook.yml
-``` 
+Run test playbook on ansible-nodes  
+`ansible-playbook -i inventory.yml remote-test.yml`
 
-Run playbook remotely
-```BASH
-ansible-playbook -i hosts/remote-hosts.yml remote-playbook.yml
-``` 
+Run webserver playbook on remote-nodes  
+`ansible-playbook -i inventory.yml remote-playbook.yml`

@@ -1,0 +1,20 @@
+---
+# tasks file for http
+
+- name: Create /home/ansible/www folder
+  file:
+    state: directory
+    path: /home/ansible/www
+    owner: ansible
+
+- name: Create webpage
+  template:
+    src: index.html.j2
+    dest: /home/ansible/www/index.html
+    mode: 0666
+    owner: ansible
+
+- name: Start web-server
+  shell: nohup python3 -m http.server 8080 </dev/null >/dev/null 2>&1 &
+  args:
+    chdir: /home/ansible/www
