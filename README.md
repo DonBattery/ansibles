@@ -18,5 +18,7 @@ Prepare the ansible-control container with
 Run test playbook on ansible-nodes  
 `ansible-playbook -i inventory.yml remote-test.yml`  
 
-Run webserver playbook on remote-nodes  
+Run webserver playbook on ansible-nodes  
 `ansible-playbook -i inventory.yml remote-playbook.yml`  
+
+After successfully running all the three playbooks ansible-node-1 should be accessible at http://localhost:7070 and ansible-node-2 at http://localhost:9090  
