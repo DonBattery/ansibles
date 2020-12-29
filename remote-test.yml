@@ -1,0 +1,11 @@
+---
+
+- name: Ansible remote test
+  hosts: all
+  gather_facts: true
+
+  tasks:
+
+    - name: Print hostname
+      debug:
+        var: inventory_hostname

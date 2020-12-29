@@ -1,0 +1,40 @@
+version: '3'
+services:
+  ansible-control:
+    container_name: anisble-control
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=False
+    build:
+      context: .
+      dockerfile: control.Dockerfile
+    volumes:
+      - ./:/app
+    networks:
+      - ansible_net
+    tty: true
+
+  ansible-node1:
+    container_name: anisble-node1
+    build:
+      context: .
+      dockerfile: node.Dockerfile
+    networks:
+      - ansible_net
+    ports:
+      - 9090:8080
+    tty: true
+
+  ansible-node2:
+    container_name: anisble-node2
+    build:
+      context: .
+      dockerfile: node.Dockerfile
+    networks:
+      - ansible_net
+    ports:
+      - 7070:8080
+    tty: true
+
+networks:
+  ansible_net:
+    driver: bridge
